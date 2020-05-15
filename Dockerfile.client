@@ -1,5 +1,4 @@
 FROM node:lts-alpine
-MAINTAINER Andrey Astashov <andrey.astashov@enkora.fi>
 
 RUN npm install -g localtunnel
 ENV LT_SERVER_URL=""

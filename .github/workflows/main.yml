@@ -1,4 +1,4 @@
-name: CI
+name: CI v2
 
 on: [push, pull_request]
 
@@ -10,7 +10,15 @@ jobs:
     - uses: actions/checkout@v1
     - uses: docker/build-push-action@v1
       with:
+        dockerfile: ./Dockerfile.server
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: mvcaaa/localtunnel-server
+        tags: ${{ github.sha }}, latest
+    - uses: docker/build-push-action@v1
+      with:
+        dockerfile: ./Dockerfile.client
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: mvcaaa/localtunnel-client
         tags: ${{ github.sha }}, latest

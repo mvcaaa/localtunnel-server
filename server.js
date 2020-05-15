@@ -53,32 +53,6 @@ export default function(opt) {
     app.use(router.routes());
     app.use(router.allowedMethods());
 
-    // root endpoint
-    app.use(async (ctx, next) => {
-        const path = ctx.request.path;
-
-        // skip anything not on the root path
-        if (path !== '/') {
-            await next();
-            return;
-        }
-
-        const isNewClientRequest = ctx.query['new'] !== undefined;
-        if (isNewClientRequest) {
-            const reqId = hri.random();
-            debug('making new client with id %s', reqId);
-            const info = await manager.newClient(reqId);
-
-            const url = schema + '://' + info.id + '.' + ctx.request.host;
-            info.url = url;
-            ctx.body = info;
-            return;
-        }
-
-        // no new client request, send to landing page
-        ctx.redirect(landingPage);
-    });
-
     // anything after the / path is a request for a specific client name
     // This is a backwards compat feature
     app.use(async (ctx, next) => {

@@ -1,6 +1,6 @@
-# localtunnel-server
+# this is OUTDATED please update
 
-[![Build Status](https://travis-ci.org/localtunnel/server.svg?branch=master)](https://travis-ci.org/localtunnel/server)
+# localtunnel-server
 
 localtunnel exposes your localhost to the world for easy testing and sharing! No need to mess with DNS or deploy just to have others test out your changes.
 
@@ -67,4 +67,23 @@ docker run -d \
     --name localtunnel \
     --net host \
     defunctzombie/localtunnel-server:latest --port 3000
+```
+
+or using docker-compose:
+```yaml
+services:
+  localtunnel:
+    image: "mvcaaa/localtunnel-server:latest"
+    container_name: "localtunnel"
+    network_mode: "host"
+    command: "--port 3000"
+    restart: "always"
+```
+
+## Building new docker image
+
+```
+docker login
+docker build -t mvcaaa/localtunnel-server -f Dockerfile.server .
+docker push mvcaaa/localtunnel-server
 ```

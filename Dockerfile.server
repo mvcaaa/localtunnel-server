@@ -1,0 +1,12 @@
+FROM node:lts-alpine
+
+ENV NODE_ENV production
+
+WORKDIR /app
+
+COPY . /app
+
+RUN yarn install --production \
+    && yarn cache clean
+
+ENTRYPOINT ["node", "-r", "esm", "./bin/server"]

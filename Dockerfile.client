@@ -1,0 +1,8 @@
+FROM node:lts-alpine
+MAINTAINER Andrey Astashov <andrey.astashov@enkora.fi>
+
+RUN npm install -g localtunnel
+ENV LT_SERVER_URL=""
+ENV LT_SUBDOMAIN=""
+
+ENTRYPOINT /usr/local/bin/lt --host ${LT_SERVER_URL} --port 80 --subdomain ${LT_SUBDOMAIN} --local-host nginx

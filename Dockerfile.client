@@ -1,7 +1,18 @@
 FROM node:lts-alpine
 
-RUN npm install -g localtunnel
 ENV LT_SERVER_URL=""
 ENV LT_SUBDOMAIN=""
+ENV LT_ENABLED="1"
 
-ENTRYPOINT /usr/local/bin/lt --host ${LT_SERVER_URL} --port 80 --subdomain ${LT_SUBDOMAIN} --local-host nginx
+RUN npm install -g localtunnel
+
+ENTRYPOINT \
+  echo "LT_ENABLED=${LT_ENABLED}"; \
+		case "$LT_ENABLED" in \
+      1|true) \
+        /usr/local/bin/lt --host ${LT_SERVER_URL} --port 80 --subdomain ${LT_SUBDOMAIN} --local-host nginx ; \
+        ;; \
+      *) \
+        echo "localtunnel is disabled, exiting" && exit 0 ; \
+        ;; \
+      esac

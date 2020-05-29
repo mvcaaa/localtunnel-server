@@ -1,5 +1,3 @@
-# this is OUTDATED please update
-
 # localtunnel-server
 
 localtunnel exposes your localhost to the world for easy testing and sharing! No need to mess with DNS or deploy just to have others test out your changes.
@@ -19,7 +17,7 @@ The above are important as the client will ask the server for a subdomain under 
 
 ```shell
 # pick a place where the files will live
-git clone git://github.com/defunctzombie/localtunnel-server.git
+git clone git://github.com/mvcaaa/localtunnel-server.git
 cd localtunnel-server
 npm install
 

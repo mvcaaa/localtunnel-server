@@ -10,9 +10,10 @@ jobs:
     - uses: docker/build-push-action@v1
       with:
         dockerfile: ./Dockerfile.server
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: mvcaaa/localtunnel-server
+        registry: gcr.io
+        repository: enkora-public/localtunnel-server
         tags: ${{ github.sha }}, latest
   client-build:
     runs-on: ubuntu-latest
@@ -21,7 +22,7 @@ jobs:
     - uses: docker/build-push-action@v1
       with:
         dockerfile: ./Dockerfile.client
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: mvcaaa/localtunnel-client
+        repository: enkora-public/localtunnel-client
         tags: ${{ github.sha }}, latest

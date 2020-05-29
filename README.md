@@ -17,7 +17,7 @@ The above are important as the client will ask the server for a subdomain under 
 
 ```shell
 # pick a place where the files will live
-git clone git://github.com/mvcaaa/localtunnel-server.git
+git clone git://github.com/enkora/localtunnel-server.git
 cd localtunnel-server
 npm install
 
@@ -64,14 +64,14 @@ docker run -d \
     --restart always \
     --name localtunnel \
     --net host \
-    defunctzombie/localtunnel-server:latest --port 3000
+    eu.gcr.io/enkora-public/localtunnel-server:latest --port 3000
 ```
 
 or using docker-compose:
 ```yaml
 services:
   localtunnel:
-    image: "mvcaaa/localtunnel-server:latest"
+    image: "eu.gcr.io/enkora-public/localtunnel-server:latest"
     container_name: "localtunnel"
     network_mode: "host"
     command: "--port 3000"
@@ -82,6 +82,6 @@ services:
 
 ```
 docker login
-docker build -t mvcaaa/localtunnel-server -f Dockerfile.server .
-docker push mvcaaa/localtunnel-server
+docker build -t eu.gcr.io/enkora-public/localtunnel-server -f Dockerfile.server .
+docker push eu.gcr.io/enkora-public/localtunnel-server
 ```

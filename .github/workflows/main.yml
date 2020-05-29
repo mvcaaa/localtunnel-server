@@ -1,4 +1,4 @@
-name: CI v2
+name: Build and push docker images
 
 on: [push, pull_request]
 

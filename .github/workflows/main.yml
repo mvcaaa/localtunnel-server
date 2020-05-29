@@ -12,7 +12,7 @@ jobs:
         dockerfile: ./Dockerfile.server
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: gcr.io
+        registry: eu.gcr.io
         repository: enkora-public/localtunnel-server
         tags: ${{ github.sha }}, latest
   client-build:
@@ -24,6 +24,6 @@ jobs:
         dockerfile: ./Dockerfile.client
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: gcr.io
+        registry: eu.gcr.io
         repository: enkora-public/localtunnel-client
         tags: ${{ github.sha }}, latest

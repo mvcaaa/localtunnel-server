@@ -4,7 +4,7 @@ localtunnel exposes your localhost to the world for easy testing and sharing! No
 
 This repo is the server component. If you are just looking for the CLI localtunnel app, see (https://github.com/localtunnel/localtunnel).
 
-## overview ##
+## Overview ##
 
 The default localtunnel client connects to the `localtunnel.me` server. You can, however, easily set up and run your own server. In order to run your own localtunnel server you must ensure that your server can meet the following requirements:
 

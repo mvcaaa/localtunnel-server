@@ -7,7 +7,7 @@ RUN npm install -g localtunnel
 
 ENTRYPOINT \
   if [ ! -z "$LT_SUBDOMAIN" ]; then \
-    /usr/local/bin/lt --host ${LT_SERVER_URL} --port 80 --subdomain ${LT_SUBDOMAIN} --local-host nginx ; \
+    while true; do /usr/local/bin/lt --host ${LT_SERVER_URL} --port 80 --subdomain ${LT_SUBDOMAIN} --local-host nginx ; sleep 30 ; done \
   else \
     echo "localtunnel is disabled, exiting" && exit 0 ; \
   fi

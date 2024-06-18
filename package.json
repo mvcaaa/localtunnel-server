@@ -25,7 +25,7 @@
     "mocha": "10.2.0",
     "node-dev": "8.0.0",
     "supertest": "3.1.0",
-    "ws": "5.2.3"
+    "ws": "5.2.4"
   },
   "scripts": {
     "test": "mocha --check-leaks --require esm './**/*.test.js'",
